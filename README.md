@@ -8,4 +8,4 @@ Credits
 
 Notes
 
-* Some areas are shaped really strangely (such as a slice of Nevada being part of the Denver media market) but that is how they are divided 
+* Some areas are shaped really strangely (such as a slice of Nevada being part of the Denver media market) but that is really how they are divided 
