@@ -123,8 +123,8 @@ d3.json("nielsentopo.json", function(error, dma) {
       var prop = d.properties;
 
       var string = "<p><strong>Market Area Name</strong>: " + prop.dma1 + "</p>";
-      string += "<p><strong>Homes with TVs</strong>: " + prop["TV Homes"] + "</p>";
-      string += "<p><strong>% with Cable</strong>: " + prop.cableperc + "</p>";
+      string += "<p><strong>Homes with TVs</strong>: " + numberWithCommas(prop["TV Homes"]) + "</p>";
+      string += "<p><strong>% with Cable</strong>: " + prop.cableperc + "%</p>";
       string += "<p><strong>Nielsen Rank</strong>: " + prop.Rank + "</p>";
 
       d3.select("#textbox")
@@ -151,21 +151,10 @@ d3.json("nielsentopo.json", function(error, dma) {
   })
 })
 
-</script>
-<script>
-
-// function for taking the tsv into an javascript object 
-// that can be looked up by dma code (which is written to screen)
-function createJSON(){
-  d3.tsv("tv.tsv", function(error, tsv){
-    var outjson = {};
-    for (var i = 0; i < tsv.length; i++){
-      outjson[tsv[i]["DMA Code"]] = tsv[i];
-    }
-    document.write(JSON.stringify(outjson));
-  });
+// via http://stackoverflow.com/a/2901298
+function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
 </script>
-
 </html>
