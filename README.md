@@ -1,4 +1,6 @@
-This is the map of Nielen [Designated Marketing Areas](http://en.wikipedia.org/wiki/Media_market). Hover over for data related to each area.
+This is the map of Nielen [Designated Marketing Areas](http://en.wikipedia.org/wiki/Media_market) using D3.js. Hover over for data related to each area. 
+
+See map [here](http://bl.ocks.org/simzou/6459889)
 
 ###Credits
 
@@ -8,4 +10,4 @@ This is the map of Nielen [Designated Marketing Areas](http://en.wikipedia.org/w
 
 ###Notes
 
-* Some areas are shaped really strangely (such as a slice of Nevada being part of the Denver media market) but that is how they are divided 
+* Some areas are shaped really strangely (such as a slice of Nevada being part of the Denver media market) but that is really how they are divided 
