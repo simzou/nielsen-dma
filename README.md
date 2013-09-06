@@ -1,4 +1,4 @@
-This is the map of Nielen [Designated Marketing Areas](http://en.wikipedia.org/wiki/Media_market). Hover over for data related to each area.
+This is the map of Nielen [Designated Marketing Areas](http://en.wikipedia.org/wiki/Media_market). Hover over for data related to each area. See map [here](http://bl.ocks.org/simzou/6459889)
 
 Credits
 
