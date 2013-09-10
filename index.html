@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html><meta charset="utf-8">
+<html>
+<head>
+<meta charset="utf-8">
+<title>US Map of Nielsen Media Markets</title>
 <style>
 .background {
   fill: none;
   pointer-events: all;
 }
 
-.domain{
-  stroke-width: .5;
-}
 .graticule {
   fill: none;
   stroke: #777;
@@ -29,11 +29,8 @@
   position: absolute;
   top: 400px;
   left: 50px;
-  border-width: 1px;
-  border-color: black;
   width: 275px;
   height: 100px;
-  border-radius: 15px;
 }
 
 #textbox text p {
@@ -43,10 +40,9 @@
 }
 
 </style>
+</head>
 <body>
-<div id="textbox">
-</div>
-</body>
+<div id="textbox"></div>
 <script src="http://d3js.org/d3.v3.js"></script>
 <script src="http://d3js.org/topojson.v1.min.js"></script>
 <script>
@@ -157,4 +153,5 @@ function numberWithCommas(x) {
 }
 
 </script>
+</body>
 </html>
