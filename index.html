@@ -2,55 +2,621 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>US Map of Nielsen Media Markets</title>
+<title>US Map of Nielsen Media Markets by Rank</title>
+<style src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"></style>
 <style>
 .background {
-  fill: none;
-  pointer-events: all;
+    fill: none;
+    pointer-events: all;
 }
+/*   Set some styles for the graticules
+______________________________________________________*/
 
 .graticule {
-  fill: none;
-  stroke: #777;
-  stroke-width: .5;
-  stroke-opacity: .7;
+    fill: none;
+    stroke: #000;
+    stroke-width: .5;
+    stroke-opacity: 1.0;
 }
+/*   Choose the line weight, color, and stroke style
+     of our borders
+______________________________________________________*/
 
 #dma-borders {
-  fill: none;
-  stroke: black;
-  stroke-width: 0.7;
-  stroke-linejoin: round;
-  stroke-linecap: round;
-  pointer-events: none;
+    fill: none;
+    stroke: #fff;
+    stroke-width: 1.0;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+    pointer-events: none;
 }
+/*   Let's try and position our two friends on the page
+______________________________________________________*/
 
 #textbox {
-  position: absolute;
-  top: 400px;
-  left: 50px;
-  width: 275px;
-  height: 100px;
+    position: relative;
+    float: left;
+    padding: 20px;
+    width: 600px;
+    height: 120px;
 }
 
-#textbox text p {
-  font-family: Arial, Helvetica;
-  font-size: .8em;
-  margin: 0;
+#dmas g {
+    margin: 20px;
+    position: relative;
+}
+/*   Style the text we just shoved into the DOM
+______________________________________________________*/
+
+#textbox p {
+    font-family: Helvetica, Arial, sans-serif;
+    color: #333;
+    font-size: 1.2em;
+    line-height: 1.44em;
+    margin: 0;
 }
 
+table {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 1.2em;
+    padding: 5px;
+}
+/*   Set the hover state of our lovely regions
+______________________________________________________*/
+
+#dmas path:hover {
+    opacity: 0.6;
+}
+/*   Set some values for our four data sets
+______________________________________________________*/
+
+.other {
+    fill: #001B26;
+    /*#BFE3FF*/
+}
+
+.bottom50 {
+    fill: #005AF8;
+    /*#4CB4F8*/
+}
+
+.middle50 {
+    fill: #4CB4F8;
+    /*#005AF8*/
+}
+
+.top50 {
+    fill: #BFE3FF;
+    /*#001B26*/
+}
 </style>
 </head>
 <body>
-<div id="textbox"></div>
+
+    <div id="map">
+    </div>
+    <div id="textbox">
+    </div>
+    <div id="top-100-table" class="col-xs-12 col-sm-7 col-md-8 col-lg-8 site-center">
+        <div style="margin-top: 40px;">
+        </div>
+        <p class="site-section">Top 100 Television Markets</p>
+        <table class="table table-striped table-condensed">
+            <tbody>
+                <tr>
+                    <th>Rank</th>
+                    <th>Metropolitan Market Regions / Areas</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td><a href="http://www.stationindex.com/tv/markets/New+York">New York</a></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td><a href="http://www.stationindex.com/tv/markets/Los+Angeles">Los Angeles</a></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td><a href="http://www.stationindex.com/tv/markets/Chicago">Chicago</a></td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td><a href="http://www.stationindex.com/tv/markets/Philadelphia">Philadelphia</a></td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td><a href="http://www.stationindex.com/tv/markets/Dallas-Ft.+Worth">Dallas-Ft. Worth</a></td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td><a href="http://www.stationindex.com/tv/markets/San+Francisco-Oakland-San+Jose">San Francisco-Oakland-San Jose</a></td>
+
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td><a href="http://www.stationindex.com/tv/markets/Boston">Boston</a></td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td><a href="http://www.stationindex.com/tv/markets/Atlanta">Atlanta</a></td>
+
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td><a href="http://www.stationindex.com/tv/markets/Washington,+DC">Washington, DC</a></td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td><a href="http://www.stationindex.com/tv/markets/Houston">Houston</a></td>
+                </tr>
+                <tr>
+                    <td>11</td>
+                    <td><a href="http://www.stationindex.com/tv/markets/Detroit">Detroit</a></td>
+                </tr>
+                <tr>
+                    <td>12</td>
+                    <td><a href="http://www.stationindex.com/tv/markets/Phoenix">Phoenix</a></td>
+
+                </tr>
+                <tr>
+                    <td>13</td>
+                    <td><a href="http://www.stationindex.com/tv/markets/Tampa-St.+Petersburg">Tampa-St. Petersburg</a></td>
+                </tr>
+                <tr>
+                    <td>14</td>
+                    <td><a href="http://www.stationindex.com/tv/markets/Seattle-Tacoma">Seattle-Tacoma</a></td>
+                </tr>
+                <tr>
+                    <td>15</td>
+                    <td><a href="http://www.stationindex.com/tv/markets/Minneapolis-St.+Paul">Minneapolis-St. Paul</a></td>
+                </tr>
+                <tr>
+                    <td>16</td>
+                    <td><a href="http://www.stationindex.com/tv/markets/Miami-Ft.+Lauderdale">Miami-Ft.Lauderdale</a></td>
+                </tr>
+                <tr>
+                    <td>17</td>
+                    <td><a href="http://www.stationindex.com/tv/markets/Cleveland-Akron">Cleveland-Akron</a></td>
+                </tr>
+                <tr>
+                    <td>18</td>
+                    <td><a href="http://www.stationindex.com/tv/markets/Denver">Denver</a></td>
+                </tr>
+                <tr>
+                    <td>19</td>
+                    <td><a href="http://www.stationindex.com/tv/markets/Orlando-Daytona+Beach-Melbourne">Orlando-Daytona Beach-Melbourne</a></td>
+                </tr>
+                <tr>
+                    <td>20</td>
+                    <td><a href="http://www.stationindex.com/tv/markets/Sacramento-Stockton-Modesto">Sacramento-Stockton-Modesto</a></td>
+                </tr>
+                <tr>
+                    <td>21</td>
+                    <td><a href="http://www.stationindex.com/tv/markets/St.+Louis">St. Louis</a></td>
+                </tr>
+                <tr>
+                    <td>22</td>
+                    <td><a href="http://www.stationindex.com/tv/markets/Portland,+OR">Portland, OR</a></td>
+
+                </tr>
+                <tr>
+                    <td>23</td>
+                    <td><a href="http://www.stationindex.com/tv/markets/Pittsburgh">Pittsburgh</a></td>
+                </tr>
+                <tr>
+                    <td>24</td>
+                    <td><a href="http://www.stationindex.com/tv/markets/Charlotte,+NC">Charlotte, NC</a></td>
+                </tr>
+                <tr>
+                    <td>25</td>
+                    <td><a href="http://www.stationindex.com/tv/markets/Indianapolis">Indianapolis</a></td>
+                </tr>
+                <tr>
+                    <td>26</td>
+                    <td><a href="http://www.stationindex.com/tv/markets/Baltimore">Baltimore</a></td>
+                </tr>
+                <tr>
+                    <td>27</td>
+                    <td><a href="http://www.stationindex.com/tv/markets/Raleigh-Durham">Raleigh-Durham</a></td>
+                </tr>
+                <tr>
+                    <td>28</td>
+                    <td><a href="http://www.stationindex.com/tv/markets/San+Diego">San Diego</a></td>
+
+                </tr>
+                <tr>
+                    <td>29</td>
+                    <td><a href="http://www.stationindex.com/tv/markets/Nashville">Nashville</a></td>
+                </tr>
+                <tr>
+                    <td>30</td>
+
+                    <td><a href="http://www.stationindex.com/tv/markets/Hartford-New+Haven">Hartford-New Haven</a></td>
+                </tr>
+                <tr>
+                    <td>31</td>
+                    <td><a href="http://www.stationindex.com/tv/markets/Kansas+City">Kansas City</a></td>
+                </tr>
+                <tr>
+                    <td>32</td>
+                    <td><a href="http://www.stationindex.com/tv/markets/Columbus,+OH">Columbus, OH</a></td>
+                </tr>
+                <tr>
+                    <td>33</td>
+                    <td><a href="http://www.stationindex.com/tv/markets/Salt+Lake+City">Salt Lake City</a></td>
+
+                </tr>
+                <tr>
+                    <td>34</td>
+                    <td><a href="http://www.stationindex.com/tv/markets/Cincinnati">Cincinnati</a></td>
+
+                </tr>
+                <tr>
+                    <td>35</td>
+                    <td><a href="http://www.stationindex.com/tv/markets/Milwaukee">Milwaukee</a></td>
+                </tr>
+                <tr>
+                    <td>36</td>
+                    <td><a href="http://www.stationindex.com/tv/markets/Greenville-Spartanburg-Asheville-Anderson">Greenville-Spartanburg-Asheville-Anderson</a></td>
+                </tr>
+
+                <tr>
+                    <td>37</td>
+                    <td><a href="http://www.stationindex.com/tv/markets/San+Antonio">San Antonio</a></td>
+                </tr>
+                <tr>
+                    <td>38</td>
+                    <td><a href="http://www.stationindex.com/tv/markets/West+Palm+Beach-Ft.+Pierce">West Palm Beach-Ft. Pierce</a></td>
+                </tr>
+                <tr>
+                    <td>39</td>
+                    <td><a href="http://www.stationindex.com/tv/markets/Grand+Rapids-Kalamazoo-Battle+Creek">Grand Rapids-Kalamazoo-Battle Creek</a></td>
+                </tr>
+                <tr>
+                    <td>40</td>
+                    <td><a href="http://www.stationindex.com/tv/markets/Birmingham">Birmingham</a></td>
+                </tr>
+                <tr>
+                    <td>41</td>
+                    <td><a href="http://www.stationindex.com/tv/markets/Harrisburg-Lancaster-Lebanon-York">Harrisburg-Lancaster-Lebanon-York</a></td>
+                </tr>
+                <tr>
+                    <td>42</td>
+                    <td><a href="http://www.stationindex.com/tv/markets/Las+Vegas">Las Vegas</a></td>
+                </tr>
+                <tr>
+                    <td>43</td>
+                    <td><a href="http://www.stationindex.com/tv/markets/Norfolk-Portsmouth-Newport+News">Norfolk-Portsmouth-Newport News</a></td>
+
+                </tr>
+                <tr>
+                    <td>44</td>
+                    <td><a href="http://www.stationindex.com/tv/markets/Albuquerque-Santa+Fe">Albuquerque-Santa Fe</a></td>
+
+                </tr>
+                <tr>
+                    <td>45</td>
+                    <td><a href="http://www.stationindex.com/tv/markets/Oklahoma+City">Oklahoma City</a></td>
+                </tr>
+
+                <tr>
+                    <td>46</td>
+                    <td><a href="http://www.stationindex.com/tv/markets/Greensboro-High+Point-Winston-Salem">Greensboro-High Point-Winston-Salem</a></td>
+
+                </tr>
+
+                <tr>
+                    <td>47</td>
+                    <td><a href="http://www.stationindex.com/tv/markets/Jacksonville-Brunswick">Jacksonville, FL</a></td>
+                </tr>
+
+                <tr>
+                    <td>48</td>
+                    <td><a href="http://www.stationindex.com/tv/markets/Memphis">Memphis</a></td>
+
+                </tr>
+
+                <tr>
+                    <td>49</td>
+                    <td><a href="http://www.stationindex.com/tv/markets/Austin">Austin</a></td>
+                </tr>
+
+                <tr>
+                    <td>50</td>
+                    <td><a href="http://www.stationindex.com/tv/markets/Louisville">Louisville</a></td>
+                </tr>
+
+                <tr>
+                    <td>51</td>
+                    <td><a href="http://www.stationindex.com/tv/markets/Buffalo">Buffalo</a></td>
+
+                </tr>
+
+                <tr>
+                    <td>52</td>
+                    <td><a href="http://www.stationindex.com/tv/markets/Providence-New+Bedford">Providence-New Bedford</a></td>
+
+                </tr>
+                <tr>
+                    <td>53</td>
+                    <td><a href="http://www.stationindex.com/tv/markets/New+Orleans">New Orleans</a></td>
+
+                </tr>
+                <tr>
+                    <td>54</td>
+                    <td><a href="http://www.stationindex.com/tv/markets/Wilkes+Barre-Scranton">Wilkes Barre-Scranton</a></td>
+                </tr>
+                <tr>
+                    <td>55</td>
+                    <td><a href="http://www.stationindex.com/tv/markets/Fresno-Visalia">Fresno-Visalia</a></td>
+                </tr>
+
+                <tr>
+                    <td>56</td>
+                    <td><a href="http://www.stationindex.com/tv/markets/Little+Rock-Pine+Bluff">Little Rock-Pine Bluff</a></td>
+
+                </tr>
+
+                <tr>
+                    <td>57</td>
+                    <td><a href="http://www.stationindex.com/tv/markets/Albany-Schenectady-Troy">Albany-Schenectady-Troy</a></td>
+                </tr>
+
+                <tr>
+                    <td>58</td>
+                    <td><a href="http://www.stationindex.com/tv/markets/Richmond-Petersburg">Richmond-Petersburg</a></td>
+
+                </tr>
+
+                <tr>
+                    <td>59</td>
+                    <td><a href="http://www.stationindex.com/tv/markets/Knoxville">Knoxville</a></td>
+
+                </tr>
+                <tr>
+                    <td>60</td>
+                    <td><a href="http://www.stationindex.com/tv/markets/Mobile-Pensacola">Mobile-Pensacola</a></td>
+
+                </tr>
+                <tr>
+                    <td>61</td>
+                    <td><a href="http://www.stationindex.com/tv/markets/Tulsa">Tulsa</a></td>
+
+                </tr>
+                <tr>
+                    <td>62</td>
+                    <td><a href="http://www.stationindex.com/tv/markets/Ft.+Myers-Naples">Ft. Myers-Naples</a></td>
+
+
+                </tr>
+                <tr>
+                    <td>63</td>
+                    <td><a href="http://www.stationindex.com/tv/markets/Lexington">Lexington</a></td>
+                </tr>
+                <tr>
+                    <td>64</td>
+                    <td><a href="http://www.stationindex.com/tv/markets/Dayton">Dayton</a></td>
+
+                </tr>
+                <tr>
+                    <td>65</td>
+                    <td><a href="http://www.stationindex.com/tv/markets/Charleston-Huntington">Charleston-Huntington</a></td>
+                </tr>
+                <tr>
+                    <td>66</td>
+
+                    <td><a href="http://www.stationindex.com/tv/markets/Flint-Saginaw-Bay+City">Flint-Saginaw-Bay City</a></td>
+
+                </tr>
+                <tr>
+                    <td>67</td>
+                    <td><a href="http://www.stationindex.com/tv/markets/Roanoke-Lynchburg">Roanoke-Lynchburg</a></td>
+
+                </tr>
+                <tr>
+                    <td>68</td>
+                    <td><a href="http://www.stationindex.com/tv/markets/Tucson">Tucson</a></td>
+                </tr>
+                <tr>
+                    <td>69</td>
+                    <td><a href="http://www.stationindex.com/tv/markets/Wichita-Hutchinson">Wichita-Hutchinson</a></td>
+
+                </tr>
+                <tr>
+                    <td>70</td>
+                    <td><a href="http://www.stationindex.com/tv/markets/Green+Bay-Appleton">Green Bay-Appleton</a></td>
+                </tr>
+                <tr>
+                    <td>71</td>
+                    <td><a href="http://www.stationindex.com/tv/markets/Des+Moines-Ames">Des Moines-Ames</a></td>
+
+                </tr>
+                <tr>
+                    <td>72</td>
+                    <td><a href="http://www.stationindex.com/tv/markets/Honolulu">Honolulu</a></td>
+                </tr>
+                <tr>
+                    <td>73</td>
+                    <td><a href="http://www.stationindex.com/tv/markets/Toledo">Toledo</a></td>
+                </tr>
+                <tr>
+                    <td>74</td>
+                    <td><a href="http://www.stationindex.com/tv/markets/Springfield,+MO">Springfield, MO</a></td>
+
+                </tr>
+
+                <tr>
+                    <td>75</td>
+                    <td><a href="http://www.stationindex.com/tv/markets/Spokane">Spokane</a></td>
+
+                </tr>
+
+                <tr>
+                    <td>76</td>
+                    <td><a href="http://www.stationindex.com/tv/markets/Omaha">Omaha</a></td>
+
+                </tr>
+
+                <tr>
+                    <td>77</td>
+                    <td><a href="http://www.stationindex.com/tv/markets/Portland-Auburn">Portland-Auburn</a></td>
+
+                </tr>
+
+                <tr>
+                    <td>78</td>
+                    <td><a href="http://www.stationindex.com/tv/markets/Paducah-Cape+Girardeau-Harrisburg">Paducah-Cape Girardeau-Harrisburg</a></td>
+
+                </tr>
+
+                <tr>
+                    <td>79</td>
+                    <td><a href="http://www.stationindex.com/tv/markets/Columbia,+SC">Columbia, SC</a></td>
+
+                </tr>
+                <tr>
+                    <td>80</td>
+                    <td><a href="http://www.stationindex.com/tv/markets/Rochester,+NY">Rochester, NY</a></td>
+                </tr>
+
+                <tr>
+                    <td>81</td>
+                    <td><a href="http://www.stationindex.com/tv/markets/Syracuse">Syracuse</a></td>
+
+                </tr>
+
+
+                <tr>
+                    <td>82</td>
+                    <td><a href="http://www.stationindex.com/tv/markets/Huntsville-Decatur">Huntsville-Decatur</a></td>
+                </tr>
+
+
+                <tr>
+                    <td>83</td>
+                    <td><a href="http://www.stationindex.com/tv/markets/Champaign-Springfield-Decatur">Champaign-Springfield-Decatur</a></td>
+
+                </tr>
+
+
+                <tr>
+                    <td>84</td>
+                    <td><a href="http://www.stationindex.com/tv/markets/Shreveport">Shreveport</a></td>
+
+                </tr>
+
+
+                <tr>
+                    <td>85</td>
+                    <td><a href="http://www.stationindex.com/tv/markets/Madison">Madison</a></td>
+                </tr>
+
+
+                <tr>
+                    <td>86</td>
+                    <td><a href="http://www.stationindex.com/tv/markets/Chattanooga">Chattanooga</a></td>
+                </tr>
+
+
+                <tr>
+                    <td>87</td>
+                    <td><a href="http://www.stationindex.com/tv/markets/Harlingen-Weslaco-Brownsville-McAllen">Harlingen-Weslaco-Brownsville-McAllen</a></td>
+
+
+                </tr>
+
+
+                <tr>
+                    <td>88</td>
+                    <td><a href="http://www.stationindex.com/tv/markets/Cedar+Rapids-Waterloo-Iowa+City-Dubuque">Cedar Rapids-Waterloo-Iowa City-Dubuque</a></td>
+
+                </tr>
+
+                <tr>
+                    <td>89</td>
+
+                    <td><a href="http://www.stationindex.com/tv/markets/South+Bend-Elkhart">South Bend-Elkhart</a></td>
+                </tr>
+
+                <tr>
+                    <td>90</td>
+                    <td><a href="http://www.stationindex.com/tv/markets/Jackson,+MS">Jackson, MS</a></td>
+
+                </tr>
+
+                <tr>
+                    <td>91</td>
+                    <td><a href="http://www.stationindex.com/tv/markets/Colorado+Springs-Pueblo">Colorado Springs-Pueblo</a></td>
+                </tr>
+
+                <tr>
+                    <td>92</td>
+                    <td><a href="http://www.stationindex.com/tv/markets/Tri-Cities,+TN-NC-VA">Tri-Cities, TN-NC-VA</a></td>
+                </tr>
+
+                <tr>
+                    <td>93</td>
+                    <td><a href="http://www.stationindex.com/tv/markets/Burlington-Plattsburgh">Burlington-Plattsburgh</a></td>
+
+                </tr>
+
+                <tr>
+                    <td>94</td>
+                    <td><a href="http://www.stationindex.com/tv/markets/Waco-Temple-Bryan">Waco-Temple-Bryan</a></td>
+
+
+                </tr>
+
+                <tr>
+                    <td>95</td>
+                    <td><a href="http://www.stationindex.com/tv/markets/Baton+Rouge">Baton Rouge</a></td>
+
+                </tr>
+
+                <tr>
+                    <td>96</td>
+                    <td><a href="http://www.stationindex.com/tv/markets/Savannah">Savannah</a></td>
+
+                </tr>
+
+                <tr>
+                    <td>97</td>
+                    <td><a href="http://www.stationindex.com/tv/markets/Davenport-Rock+Island-Moline">Davenport-Rock Island-Moline</a></td>
+
+                </tr>
+
+                <tr>
+                    <td>98</td>
+                    <td><a href="http://www.stationindex.com/tv/markets/El+Paso">El Paso</a></td>
+
+                </tr>
+
+                <tr>
+                    <td>99</td>
+                    <td><a href="http://www.stationindex.com/tv/markets/Charleston,+SC">Charleston, SC</a></td>
+                </tr>
+
+                <tr>
+                    <td>100</td>
+                    <td><a href="http://www.stationindex.com/tv/markets/Ft.+Smith-Fayetteville-Springdale-Rogers">Ft. Smith-Fayetteville-Springdale-Rogers</a></td>
+
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+<script src="https://raw.githubusercontent.com/budelman/nielsen-dma/master/nielsentopo.json"></script>
+<script src="https://raw.githubusercontent.com/budelman/nielsen-dma/master/tv.json"></script>
 <script src="http://d3js.org/d3.v3.js"></script>
 <script src="http://d3js.org/topojson.v1.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/3.5.0/lodash.min.js"></script>
 <script>
 var width = 960,
-    height = 500;
+    height = 600;
+
 // sets the type of view
 var projection = d3.geo.albersUsa()
-    .scale(1070) // size, bigger is bigger
+    .scale(1280) // size, bigger is bigger
     .translate([width / 2, height / 2]);
 
 //creates a new geographic path generator
@@ -58,100 +624,133 @@ var path = d3.geo.path().projection(projection);
 var xScale = d3.scale.linear()
     .domain([0, 7])
     .range([0, 500]);
-
 var xAxis = d3.svg.axis()
     .scale(xScale)
     .orient("bottom")
     .tickSize(13)
     .tickFormat(d3.format("0.0f"));
 
-
 //set svg window
-var svg = d3.select("body")
-      .append("svg")
-      .attr("width", width)
-      .attr("height", height)
-
+var svg = d3.select("div")
+    .append("svg")
+    .attr("width", width)
+    .attr("height", height)
+    //set parameters of the graticule drawer
 var graticule = d3.geo.graticule()
-    .extent([[-98 - 45, 38 - 45], [-98 + 45, 38 + 45]])
+    .extent([
+        [-98 - 45, 38 - 45],
+        [-98 + 45, 38 + 45]
+    ])
     .step([5, 5]);
 
-// adding a blank background
+// add a blank background
 svg.append("rect")
     .datum(graticule)
     .attr("class", "background")
     .attr("width", width)
-    .attr("height", height)
-   // .on("click", clicked);
+    .attr("height", height);
+// .on("click", clicked);
 
-//declare g as our appended svg
+// declare g as our appended svg
 var g = svg.append("g");
 
-var defaultFill = "#aaa";
+// declare the default color of g elements
+var defaultFill = "#ccc";
 
-d3.json("nielsentopo.json", function(error, dma) {
+var neilsen_data = undefined;
+var tv_data = undefined;
 
-  var nielsen = dma.objects.nielsen_dma.geometries;
+// get data from nielsen topographic json and put it into "dma"
+d3.json("https://raw.githubusercontent.com/budelman/nielsen-dma/master/nielsentopo.json", function(error, dma) {
 
-  // adding data from tv json (number of TVs, etc) to map json
-  d3.json("tv.json", function(error, tv){
-    for (var i = 0; i < nielsen.length; i++){
-      var dma_code = nielsen[i].id;
-      for (key in tv[dma_code]){
-        nielsen[i].properties[key] = tv[dma_code][key];
-      }
-    }
-  dma.objects.nielsen_dma.geometries = nielsen;
+    // define nielsen as the data parsed out into the geometric objects
+    var nielsen = dma.objects.nielsen_dma.geometries;
 
-  g.append("g")
-    .attr("id", "dmas")
-    .selectAll("path")
-    .data(topojson.feature(dma, dma.objects.nielsen_dma).features)
-    .enter()
-    .append("path")
-    .attr("d", path)
-    //.on("click", clicked)
-    
-    .on("mouseover", function(d){
-      d3.select(this)
-      .attr("fill", "orange");
+    // get ID of data set from tv json (number of TVs, etc) and map to each geometric object ID and put that in "tv"
+    d3.json("https://raw.githubusercontent.com/budelman/nielsen-dma/master/tv.json", function(error, tv) {
+        for (var i = 0; i < nielsen.length; i++) {
+            var dma_code = nielsen[i].id;
+            for (key in tv[dma_code]) {
+                nielsen[i].properties[key] = tv[dma_code][key];
+            }
+        }
 
-      var prop = d.properties;
+        // set n2, a funtion that takes each map item and maps an annotation it.
+        var n2 = _.map(nielsen, function(item) {
+            item.annotations = {
+                color: (item.properties["Rank"] < 50 ? "green" : "yellow")
+            };
+            return item;
+        });
 
-      var string = "<p><strong>Market Area Name</strong>: " + prop.dma1 + "</p>";
-      string += "<p><strong>Homes with TVs</strong>: " + numberWithCommas(prop["TV Homes"]) + "</p>";
-      string += "<p><strong>% with Cable</strong>: " + prop.cableperc + "%</p>";
-      string += "<p><strong>Nielsen Rank</strong>: " + prop.Rank + "</p>";
+        // run n2 when the data is called and geometry is run
+        dma.objects.nielsen_dma.geometries = n2;
 
-      d3.select("#textbox")
-        .html("")
-        .append("text")
-        .html(string)
+        // add data sources and IDs into to each path area "g"
+        g.append("g")
+            .attr("id", "dmas")
+            .selectAll("path")
+            .data(topojson.feature(dma, dma.objects.nielsen_dma).features)
+            .enter()
+            .append("path")
+            .attr("d", path)
+
+        // Set the hover state for the text and bg color
+        .on("mouseover", function(d) {
+            // define "prop" as the data properties of the paths
+            var prop = d.properties;
+            // pull the data into some html and prepare to shove it into a div
+            var string = "<p>Market Area Name<strong>: " + prop.dma1 + "</strong></p>";
+            string += "<p>Nielsen Rank<strong>: " + prop.Rank + "</strong></p>";
+            string += "<p>Homes with TVs<strong>: " + numberWithCommas(prop["TV Homes"]) + "</strong></p>";
+            string += "<p>% with Cable<strong>: " + prop.cableperc + "%</strong></p>";
+
+            // Shove the text into the div with ID #textbox
+            d3.select("#textbox")
+                .html("")
+                .append("text")
+                .html(string);
+        })
+
+        .on("mouseout", function(d) {
+            // add something here if you want to be clever on mouseOut
+        })
+
+        // Set the default fill color based on Nielsen Rank
+        .attr("class", function(d) {
+
+            var setclass = "";
+
+            if (d.properties["Rank"] < 51) {
+                setclass = "top50"
+            }
+            if (d.properties["Rank"] > 50 && d.properties["Rank"] <= 101) {
+                setclass = "middle50"
+            }
+            if (d.properties["Rank"] >= 100 && d.properties["Rank"] <= 151) {
+                setclass = "bottom50"
+            }
+            if (d.properties["Rank"] > 150) {
+                setclass = "other"
+            }
+
+            return setclass;
+        });
+
+        // add the dma borders to g with id "dma-borders"
+        g.append("path", ".graticule")
+            .datum(topojson.mesh(dma, dma.objects.nielsen_dma, function(a, b) {
+                return true;
+            }))
+            .attr("id", "dma-borders")
+            .attr("d", path);
     })
-
-    .on("mouseout", function(d){
-      d3.select(this)
-      .attr("fill", defaultFill)
-    })
-    
-    .attr("opacity", 0.9)
-    .attr("fill", defaultFill);
-
-  // add dma borders
-  g.append("path", ".graticule")
-      .datum(topojson.mesh(dma, dma.objects.nielsen_dma, function(a, b) { 
-        return true;
-      }))
-      .attr("id", "dma-borders")
-      .attr("d", path);
-  })
 })
 
 // via http://stackoverflow.com/a/2901298
 function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
-
 </script>
 </body>
 </html>
