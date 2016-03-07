@@ -2,6 +2,8 @@ This is the map of Nielen [Designated Marketing Areas](http://en.wikipedia.org/w
 
 See map [here](http://bl.ocks.org/simzou/6459889)
 
+See code [here](https://github.com/simzou/nielsen-dma/)
+
 ###Credits
 
 * Map adapted from Mike Bostock's [map example](http://bl.ocks.org/mbostock/2206590)
