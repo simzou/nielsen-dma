@@ -1,0 +1,65 @@
+body {
+  font: 10px 'Tahoma';
+}
+.background {
+  fill: none;
+  pointer-events: all;
+}
+
+.graticule {
+  fill: none;
+  stroke: #777;
+  stroke-width: .5;
+  stroke-opacity: .7;
+}
+
+#dma-borders {
+  fill: none;
+  stroke: black;
+  stroke-width: 0.7;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  pointer-events: none;
+}
+
+#textbox {
+  position: absolute;
+  top: 400px;
+  left: 50px;
+  width: 275px;
+  height: 100px;
+}
+
+#textbox text p {
+  font-family: Arial, Helvetica;
+  font-size: .8em;
+  margin: 0;
+}
+
+#clusters {
+  display: block;
+  float: right;
+  width: 400px;
+}
+#clusters div {
+  padding: 0.5em;
+  background-color: #eee;
+  margin-bottom: 1em;
+}
+#clusters p {
+  margin: 0;
+}
+#clusters table {
+  border-collapse: collapse;
+}
+#clusters th,
+#clusters td {
+  padding: 0 1em 0 0;
+  text-align: left;
+}
+#clusters td.number {
+  text-align: right;
+}
+#clusters tbody tr:hover {
+  background-color: #ccc;
+}
