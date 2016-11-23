@@ -1,6 +1,22 @@
 body {
   font: 10px 'Tahoma';
 }
+svg {
+  display: block;
+  position: absolute;
+  width: 800px;
+  height: 500px;
+  top: 0;
+  left: 0;
+}
+#clusters {
+  display: block;
+  position: absolute;
+  left: 800px;
+  top: 10px;
+  width: 500px;
+}
+
 .background {
   fill: none;
   pointer-events: all;
@@ -22,6 +38,7 @@ body {
   pointer-events: none;
 }
 
+/*
 #textbox {
   position: absolute;
   top: 400px;
@@ -35,12 +52,8 @@ body {
   font-size: .8em;
   margin: 0;
 }
+*/
 
-#clusters {
-  display: block;
-  float: right;
-  width: 400px;
-}
 #clusters div {
   padding: 0.5em;
   background-color: #eee;
@@ -54,12 +67,13 @@ body {
 }
 #clusters th,
 #clusters td {
-  padding: 0 1em 0 0;
+  padding: 0 1em 0 0.25em;
   text-align: left;
 }
 #clusters td.number {
   text-align: right;
 }
-#clusters tbody tr:hover {
+#clusters tbody tr:hover,
+#clusters tbody tr.active {
   background-color: #ccc;
 }
