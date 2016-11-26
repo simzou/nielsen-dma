@@ -11,6 +11,7 @@
     ]
   },
   "objects": {
+    "{{{": [],
     "nielsen_dma": {
       "type": "GeometryCollection",
       "geometries": [
@@ -9206,7 +9207,8 @@
           }
         }
       ]
-    }
+    },
+    "}}}": []
   },
   "arcs": [
     [
