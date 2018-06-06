@@ -6935,7 +6935,7 @@
             "latitude": 42.9137715,
             "tvperc": 87.6,
             "dma": 538,
-            "dma1": "Rochester, MN-Mason City, IA-Austin, MN",
+            "dma1": "Rochester, NY",
             "cableperc": 69.5,
             "adsperc": 18.6,
             "longitude": -77.387152
@@ -6961,7 +6961,7 @@
             "latitude": 43.552183,
             "tvperc": 89,
             "dma": 611,
-            "dma1": "Rochester, NY",
+            "dma1": "Rochester, MN-Mason City, IA-Austin, MN",
             "cableperc": 57,
             "adsperc": 32.4,
             "longitude": -92.850969
