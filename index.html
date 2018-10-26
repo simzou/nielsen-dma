@@ -27,7 +27,7 @@
 
 #textbox {
   position: absolute;
-  top: 400px;
+  top: 540px;
   left: 50px;
   width: 275px;
   height: 100px;
@@ -96,7 +96,7 @@ d3.json("nielsentopo.json", function(error, dma) {
   // adding data from tv json (number of TVs, etc) to map json
   d3.json("tv.json", function(error, tv){
     for (var i = 0; i < nielsen.length; i++){
-      var dma_code = nielsen[i].id;
+      var dma_code = nielsen[i].properties.dma;
       for (key in tv[dma_code]){
         nielsen[i].properties[key] = tv[dma_code][key];
       }
