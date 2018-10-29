@@ -27,7 +27,7 @@
 
 #textbox {
   position: absolute;
-  top: 400px;
+  top: 540px;
   left: 50px;
   width: 275px;
   height: 100px;
@@ -119,9 +119,9 @@ d3.json("nielsentopo.json", function(error, dma) {
       var prop = d.properties;
 
       var string = "<p><strong>Market Area Name</strong>: " + prop.dma1 + "</p>";
-      string += "<p><strong>Homes with TVs</strong>: " + numberWithCommas(prop["TV Homes"]) + "</p>";
+      string += prop["TV Homes"] ? "<p><strong>Homes with TVs</strong>: " + numberWithCommas(prop["TV Homes"]) + "</p>" : "";
       string += "<p><strong>% with Cable</strong>: " + prop.cableperc + "%</p>";
-      string += "<p><strong>Nielsen Rank</strong>: " + prop.Rank + "</p>";
+      string += prop.Rank ? "<p><strong>Nielsen Rank</strong>: " + prop.Rank + "</p>" : "";
 
       d3.select("#textbox")
         .html("")
